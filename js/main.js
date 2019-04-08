@@ -7,6 +7,8 @@ const selectorEl = document.getElementById('mood-selector');
 const btnUpdateEl = document.querySelector('.btn-update');
 const pageEl = document.body;
 const moodTitleEl = document.querySelector('.mood-title');
+const happyEl = document.getElementById('happy');
+const sadEl = document.getElementById('sad');
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -21,9 +23,17 @@ function even(number){
 function changeMood(event){
     event.preventDefault();
     moodTitleEl.innerHTML=selectorEl.value;
+    if (selectorEl.value===":)"){
+        happyEl.play();
+    }
+    else{
+        sadEl.play();
+    }
+
     const randomNumber = getRandomInt(1,100);
     if (even(randomNumber)){
         pageEl.classList.remove('odd-selection');
+       
     }
     else {
         pageEl.classList.add('odd-selection');
